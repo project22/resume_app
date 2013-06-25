@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>	
+		<title>Bootstrap Form</title>
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/bootstrap.css">
+
+
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="js/js2.js"></script>
+		<script type="text/javascript">
+			//on click of input:disabled, kill the style and make it usable again.
+
+			/* How to check if checkbox is checked using jQuery
+			// First way
+			$('#checkBox').attr('checked');
+			// If using jQuery 1.6 or up use .prop() instead
+			// Learn the difference between property and an attribute
+			$('#checkBox').prop('checked');
+
+			// Second way 
+			$('#edit-checkbox-id').is(':checked'); 
+
+			*/
+		</script>
+
+	</head>
+	<body>
+
+		<div class="container">
+			<div class="page-header">
+  				<h1>Create your Resume</h1>
+			</div>
+		<!-- class="form-horizontal" add this to form to change labels horizonally.  But it's mixed.  :(  -->
+		<form  id="userDataForm">
+			<div class="row">
+			  	<div class="span4">
+					<fieldset>
+						<legend>Personal Information</legend>						
+							<label for="signup_name">Name</label>
+							<input id="signup_name" type="text" paceholder="e.g. John Smith">
+												
+							<label for="linkedin">LinkedIn</label>
+							<input id="linkedin" type="text" paceholder="enter data">
+						
+							<label for="website">Website</label>
+							<input id="website" type="text" paceholder="enter data">
+						
+							<label  for="twitter">Twitter</label>
+							<input id="twitter" type="text" paceholder="enter data">
+						
+						<span class="help-block">Your name is your primary identifier, blah blah.</span>
+					</fieldset>		  		
+			  	</div>
+			  	<div class="span4">
+			  		<fieldset>
+						<legend>Contact Information</legend>
+						
+						<label for="street_number">Street Number</label>
+						<input id="street_number" type="text" paceholder="enter data">
+						
+						<label for="city">City</label>
+						<input id="city" type="text" paceholder="enter data">
+						<label for="state">State</label>
+						<input id="state" type="text" paceholder="enter data">
+						<label for="zip">Zip</label>
+						<input id="zip" type="text" paceholder="enter data">
+						<label for="phone">Phone</label>
+						<input id="phone" type="text" paceholder="enter data">
+						<label for="email">Email</label>
+						<input id="email" type="text" paceholder="enter data"> 	
+					</fieldset>
+
+
+			  	</div>
+			  	<div class="span4">
+				  	<div class="alert alert-info">
+				  		<p>Media heading
+						Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio,  Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+						</p>
+						<p>
+						Media heading
+						Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. 
+						</p>
+						<p>
+						Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras 
+						</p>
+					</div>
+				</div>
+			</div>
+
+			
+			
+			<fieldset>
+				<legend>Education</legend>
+				<div class="education_block">
+					<div class="well">
+						<div class="control-group">
+							<label class="control-label" for="institution">Institution</label>
+							<div class="controls"><input id="institution" type="text" paceholder="enter data"></div>
+						</div>
+						<div class="control-group">	
+							<label class="control-label"  for="degree">Degree</label>
+							<div class="controls"><input id="degree" type="text" paceholder="enter data"></div>
+						</div>
+						<div class="control-group">	
+							<label class="control-label"  for="gpa">GPA</label>
+							<div class="controls"><input id="gpa" type="text" paceholder="enter data"></div>
+						</div>
+						<div class="control-group">	
+							<label  class="control-label" for="major">Major</label>
+							<div class="controls"><input id="major" type="text" paceholder="enter data"></div>
+						</div>
+						<div class="control-group">	
+							<label class="control-label"  for="minor">Minor</label>
+							<div class="controls"><input id="minor" type="text" paceholder="enter data"></div>
+						</div>
+						<div class="control-group">	
+							<label  class="control-label" for="start_year">Start Year</label>
+							<div class="controls"><input id="start_year" type="month" paceholder="enter data"> </div>
+						</div>
+						<div class="control-group">	
+							<label class="control-label" for="end_year">End Year</label>
+							<div class="controls"><input id="end_year" type="month" paceholder="enter data"> </div>
+						</div>
+					</div>		
+				</div>
+				<span id="add_school">
+					<a href="#" class="education_block_add"><i class="icon-plus-sign"></i> Add another school</a>
+				</span>		
+							
+			</fieldset>
+			<fieldset>
+			
+				<legend>Experience</legend>
+				
+					<label for="organization">Organization</label>
+					<input id="organization" type="text" paceholder="enter data">
+					<label for="project">Project</label>
+					<input id="project" type="text" paceholder="enter data">
+				
+			</fieldset>
+			<div class="well">
+			<fieldset>
+				<legend>Project Details</legend>
+				<label for="role">Role</label>
+				<input id="role" type="text" paceholder="enter data">
+				
+				<label for="start_year">Start Year</label>
+				<input id="start_year" type="month" paceholder="enter data"> 
+				<label for="end_year">End Year</label>
+				<input id="end_year" type="month" paceholder="enter data"> 
+			</fieldset>
+			<div class="well">
+			<fieldset>
+				<legend>Responsibilities</legend>
+				<label for="responsibility">Responsibility</label>
+				<input id="responsibility" type="text" paceholder="enter data">
+				<label for="responsibility">Responsibility</label>
+				<input id="responsibility" type="text" paceholder="enter data">
+			</fieldset>	
+			</div>
+			</div>
+			<fieldset>
+				<legend>Skills</legend>
+				<div class="well">
+				<label for="skill">Skill Name</label>
+				<input id="skill" type="text" paceholder="enter data">
+				<label for="category">Category</label>
+				<input id="category" type="text" paceholder="enter data">
+				<label for="years_exp">Years Experience</label>
+				<input id="years_exp" type="text" paceholder="enter data"/>
+				</div>
+				<div class="well">
+				<label for="skill">Skill Name</label>
+				<input id="skill" type="text" paceholder="enter data">
+				<label for="category">Category</label>
+				<input id="category" type="text" paceholder="enter data">
+				<label for="years_exp">Years Experience</label>
+				<input id="years_exp" type="text" paceholder="enter data"/>
+				</div>
+			</fieldset>	
+			<fieldset>
+				<legend>Accomplishments</legend>
+				<div class="well">	
+				<label for="accomp_name">Accomplishment Name</label>
+				<input id="accomp_name" type="text" paceholder="enter data">
+				<label for="accomp_date">Date</label>
+				<input id="accomp_date" type="date" paceholder="enter data">
+				<label for="accomp_desc">Description</label>
+				<textarea id="accomp_desc" row="5" paceholder="enter data"/>ddd</textarea>
+				</div>
+			</fieldset>	
+			<fieldset>
+				<input class="btn btn-primary" type="submit" value="Save &amp Continue" />
+			</fieldset>
+
+			
+		</form>
+	</div>
+	</body>
+</html>
