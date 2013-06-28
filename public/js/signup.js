@@ -15,13 +15,13 @@ When I examine the elements, I don't see my div blocks for the additional cloned
 
 
 $(document).ready(function(){
-
+/*
 	$(".education_block_add").click(add_block('.education_block_add', ".education_block"));
 	$(".experience_block_add").click(add_block('.experience_block_add', ".experience_block"));
 	$(".skill_block_add").click(add_block('.skill_block_add', ".skill_block"));
 	$(".responsibility_block_add").click(add_block('.responsibility_block_add', ".responsibility_block"));
 	$(".accomplishment_block_add").click(add_block('.accomplishment_block_add', ".accomplishment_block"));
-
+*/
 
 
 
@@ -68,19 +68,19 @@ $(document).ready(function(){
 
 		education_blocks.each(function(index, item) {  // .each(fuction(x,y){}) is park of the jQuery object set above.
 			userData.schools.push({
-				name 	: 	$(item).find('#institution').val(),
-				degree 	: 	$(item).find('#degree').val(),
-				gpa		: 	$(item).find('#gpa').val(),
-				major	: 	$(item).find('#major').val(),
-				minor	: 	$(item).find('#minor').val(),
-				start_month_year : $(item).find("#start_month_year").val(),
-				end_month_year : $(item).find("#end_month_year").val(),
+				name 				: $(item).find('#institution').val(),
+				degree 				: $(item).find('#degree').val(),
+				gpa					: $(item).find('#gpa').val(),
+				major				: $(item).find('#major').val(),
+				minor				: $(item).find('#minor').val(),
+				start_month_year 	: format_date($(item).find("#start_month_year").val()),
+				end_month_year 		: format_date($(item).find("#end_month_year").val()),
 			});
 
 		});
 
 
-		userData.experiences = [];
+		userData.experience = [];
 		var experience_blocks = $(".experience_block");
 		// var education_blocks = [1, 2, 3];
 
@@ -94,10 +94,8 @@ $(document).ready(function(){
 
 			responsibility_blocks.each(function(index, item) {			
 				// add each of the responsibilities into the array which will be added
-				// in the userData.experiences.push below.  
-				responsibilities.push({					
-					responsibilities : $(item).find("#responsibility").val()
-				});
+				// in the userData.experience.push below.  
+				responsibilities.push($(item).find("#responsibility").val());
 			});
 			
 				
@@ -105,12 +103,12 @@ $(document).ready(function(){
 			
 
 
-			userData.experiences.push({
+			userData.experience.push({
 				organization 		: $(item).find('#organization').val(),
 				project 			: $(item).find('#project').val(),
 				role 				: $(item).find('#role').val(),
-				start_month_year 	: $(item).find('#start_month_year').val(),
-				end_month_year 		: $(item).find('#end_month_year').val(),
+				start_month_year 	: format_date($(item).find('#start_month_year').val()),
+				end_month_year 		: format_date($(item).find('#end_month_year').val()),
 				location 			: $(item).find('#location').val(),	
 				responsibilities 	: responsibilities // first is the label, second is array
 			});
@@ -121,16 +119,15 @@ $(document).ready(function(){
 		});
 
 		//skill_block
-		userData.skills = [];
+		userData.skill = [];
 		var skill_block = $(".skill_block");
 
 		skill_block.each(function(index, item) {
-			userData.skills.push({
-				title 		: $(item).find('#title').val(),
+			userData.skill.push({
+				title 				: $(item).find('#title').val(),
 				category 			: $(item).find('#category').val(),
-				experience 				: $(item).find('#experience').val(),
-				
-				
+				experience 			: $(item).find('#experience').val(),
+
 			});
 
 		});
@@ -142,9 +139,9 @@ $(document).ready(function(){
 
 		accomplishment_blocks.each(function(index, item) {
 			userData.accomplishments.push({
-				title 	: 	$(item).find('#title').val(),
-				month_year 	: 	$(item).find('#month_year').val(),
-				description		: 	$(item).find('#description').val(),
+				title 				: $(item).find('#title').val(),
+				month_year 			: format_date($(item).find('#month_year').val()),
+				description			: $(item).find('#description').val(),
 				
 			});
 
@@ -191,16 +188,17 @@ $(document).ready(function(){
 			html.find("input").val("blank");
 			$(this).parent().before(html);
 			html.slideDown(600); //html is an object
-			add_block2();  //reattached the click event to new div just created here.
+			add_block2();  //turn it back on again.  It got fired off already.
 			return false;
 		});
 	}
+	//turn it on for the first time here
 	add_block2();
 
 
 });
 
-
+/*
 function add_block(trigger_name, block_name) {
 	$(trigger_name).click(function(){
 		var html = $(block_name).first().clone();  //cloning the first in the array of the div named.  
@@ -212,6 +210,12 @@ function add_block(trigger_name, block_name) {
 		return false;
 	});
 };
+*/
+
+function format_date(date_string){
+	formatted_date = date_string.slice(date_string.length-2, date_string.length) + date_string.slice(2,4);
+	return formatted_date;
+}
 
 
 
