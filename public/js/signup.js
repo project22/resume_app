@@ -19,12 +19,19 @@ $(document).ready(function(){
 	$(".education_block_add").click(add_block('.education_block_add', ".education_block"));
 	$(".experience_block_add").click(add_block('.experience_block_add', ".experience_block"));
 	$(".skill_block_add").click(add_block('.skill_block_add', ".skill_block"));
-	//responsibility_block
 	$(".responsibility_block_add").click(add_block('.responsibility_block_add', ".responsibility_block"));
 	$(".accomplishment_block_add").click(add_block('.accomplishment_block_add', ".accomplishment_block"));
 
 
+
+
 	$("#userDataForm").submit(function(){
+
+
+		
+
+		
+
 		var userData = {};  //var userData is a new hash object
 		//create new indexed in userData, and assign it the values from the form. e.g. $("#signup_name").val(); 
 
@@ -59,7 +66,7 @@ $(document).ready(function(){
 		var education_blocks = $(".education_block");
 		// var education_blocks = [1, 2, 3];
 
-		education_blocks.each(function(index, item) {
+		education_blocks.each(function(index, item) {  // .each(fuction(x,y){}) is park of the jQuery object set above.
 			userData.schools.push({
 				name 	: 	$(item).find('#institution').val(),
 				degree 	: 	$(item).find('#degree').val(),
@@ -145,10 +152,50 @@ $(document).ready(function(){
 
 
 		console.log(userData);
+
+
+
+		// put all the userData JSON data into a new object call postData and make it a big JSON string.
+		var postData = JSON.stringify(
+				{'resume': userData});
+/*
+		var postData = {};
+		postData.resume =userData ;
+*/		
+		console.log(postData);
+
+		//Now post this using AJAX to the less Ruby server
+		$.ajax({
+			type: 	"POST",
+			url: 	"/api/resumes",
+			data: 	postData
+		});
+		//end the post to AJAX.  worked well.
+
+
 		return false;  //kills the forms normal function.  return false destroys the natural behavior of HTML,
 		//The return false command must be at the END of the functionm.
+		//CAREFULL no code after this statement in this fucntion will be executed
+
+
+		
 	});
 
+	//second attempt at the block add
+	//it will listed to any elemnt with closs of ".add_block"
+	function add_block2(){
+		$(".add_block2").click(function(){
+			var html = $(this).parent().prev().clone();
+			console.log(html);
+			html.css("display", "none");	
+			html.find("input").val("blank");
+			$(this).parent().before(html);
+			html.slideDown(600); //html is an object
+			add_block2();  //reattached the click event to new div just created here.
+			return false;
+		});
+	}
+	add_block2();
 
 
 });
@@ -156,13 +203,19 @@ $(document).ready(function(){
 
 function add_block(trigger_name, block_name) {
 	$(trigger_name).click(function(){
-		var html = $(block_name).first().clone();
+		var html = $(block_name).first().clone();  //cloning the first in the array of the div named.  
+		// need to trace the events and objects.  
 		html.css("display", "none"); // the html object must be hidden in order to be seen revealed in animation
 		html.find("input").val("sample data");  //finding the input elements by tag name "input" and setting value to empty string.
-		$(this).before(html);
+		$(this).before(html);  // What is this?  this is the link
 		html.slideDown(600); //html is an object
 		return false;
 	});
 };
+
+
+
+
+
 
 
