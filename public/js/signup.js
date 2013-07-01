@@ -180,21 +180,21 @@ $(document).ready(function(){
 
 	//second attempt at the block add
 	//it will listed to any elemnt with closs of ".add_block"
-	function add_block2(){
+	// function add_block2(){
 		$(".add_block2").click(function(){
 			var html = $(this).parent().prev().clone();
 			// Problem.  It's grabbing the previous along with all the other cloned blocks.  
 			console.log(html);
 			html.css("display", "none");	
-			html.find("input").val("blank");
+			html.find("input").val("");
 			$(this).parent().before(html);
 			html.slideDown(600); //html is an object
-			add_block2();  //turn it back on again.  It got fired off already.
+			//add_block2();  //turn it back on again.  It got fired off already.
 			return false;
 		});
-	}
+	// }
 	//turn it on for the first time here
-	add_block2();
+	// add_block2();
 
 
 });
