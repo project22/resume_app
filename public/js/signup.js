@@ -183,6 +183,7 @@ $(document).ready(function(){
 	function add_block2(){
 		$(".add_block2").click(function(){
 			var html = $(this).parent().prev().clone();
+			// Problem.  It's grabbing the previous along with all the other cloned blocks.  
 			console.log(html);
 			html.css("display", "none");	
 			html.find("input").val("blank");
