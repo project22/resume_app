@@ -1,0 +1,73 @@
+<html lang="en">
+  <head>
+    <title>R&eacute;sum&eacute;</title>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript">
+    
+    //This is new data for a new record
+    var data = {"resume":{"name_first":"Susan", "id":"51d360909f880b30da00000a"}};
+
+    
+
+
+   // var data_update = {"resume":{"name_first":"Fred", "id": target_id }};
+
+      
+    $(function() {
+  
+      $('#create').on('click', function() {
+        
+        $.ajax({
+          method: 'POST',
+          url: '/',
+          data: JSON.stringify(data)
+        });
+      });
+    });
+
+
+    $(function() {  
+      //var del_id = data.resume.id;   
+      $('#delete').on('click', function() {
+
+        var target_id = $("#target_id").val();
+
+        $.ajax({
+          method: 'DELETE',
+          url: '/'+ target_id
+          
+        });
+      });
+    });
+
+    $(function() {  
+      //var update_id = data_update.resume.id;  
+      //var new_name = data.resume.name_first;
+      $('#update').on('click', function() {
+
+        var target_id = $("#target_id").val();
+        //This is the data that would be passed for an update.  Fred
+        var data_update = {"resume":{"name_first":"Fred", "id": target_id }};
+
+
+        $.ajax({
+          method: 'PUT',
+          url: '/'+ target_id,
+          data: JSON.stringify(data_update)
+          
+        });
+      });
+    });
+
+    </script>
+  </head>
+
+  <body>
+    
+    <button id="create">Create</button>
+    <p>ID you want to affect: <input type="text" id="target_id"/>
+    <button id="delete">Delete</button>
+    <button id="update">Update</button>
+    </p>
+  </body>
+</html>

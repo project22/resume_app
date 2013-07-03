@@ -1,0 +1,119 @@
+body {
+	background: #cbdfe3;
+	font-size: 12pt;
+	background-image: url("http://stillsound.files.wordpress.com/2012/04/outer-space-stars.jpeg");
+	background-size: 100%;
+	background-attachment:fixed;
+
+
+
+
+}
+
+.section {
+	padding: 10px;
+	margin:0px auto;
+	background: white;
+	margin-top: 20px;
+	border-radius: 5px;
+
+
+}
+.section:hover {
+	background: yellow;
+
+}
+
+ul {
+	list-style-type: none;
+	padding: 20px;
+	margin: 0px;
+
+	border:1px solid #CDCDCD;
+
+}
+ul:not(:last-child) {
+	margin-bottom: 10px;
+}
+li {
+	text-align: left;
+	padding-bottom: 10px;
+
+
+}
+
+ul ul { 
+	
+	padding-left: 1.5em; 
+}
+
+
+h2 {
+	background: #CDCDCD;
+	padding: 13px 20px 15px 20px;
+	
+	border-radius: 10px;
+	display: block;
+	margin: 0px;
+	position: relative;
+	top: -20px;
+	box-shadow: 4px 7px 5px #888888;
+	border: 1px outset white ;
+	opacity:0.8;
+	filter:alpha(opacity=80);
+	text-shadow: 1px 1px 0 white;
+	font-family: 'Audiowide', cursive;
+	font-size: 28pt;
+
+}
+.container {
+
+	width: 700px;
+	margin: auto;
+
+	
+
+	
+}
+.column {
+	width: auto;
+	float: left;
+	padding: 0px;
+	margin: 0px;
+	margin-right: 10px;
+	position: relative;
+	
+}
+.fill_width {
+	width: 100%;
+}
+
+.avatar {
+	width: 150px;
+	height: 180px;
+
+	background-image: url("http://cdn.business2community.com/wp-content/uploads/2013/04/napoleon-dynamite.jpg");
+	background-size:250px;
+	background-position: center;
+	background-repeat:no-repeat;
+}
+
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+.label {
+	width: 150px;
+	text-align: right;
+	display: inline-block;
+	margin-right: 20px;
+	color: grey;
+}
+.entry {
+
+}
